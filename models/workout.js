@@ -26,7 +26,7 @@ const workoutSchema = new Schema({
                 type: Number,
                 required: "Please enter the weight used for this exercise."
             },
-            repetitions: {
+            reps: {
                 type: Number,
                 required: "Please enter the total number of repetitions for this exercise."
             },
