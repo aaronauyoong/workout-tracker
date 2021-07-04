@@ -35,7 +35,7 @@ router.put("/api/workouts/:id", (req, res) => {
 		});
 });
 
-// get workouts/range for the stats page - links to frontend functiongetWorkoutsInRange() 
+// get workouts/range for the stats page - links to frontend function getWorkoutsInRange() 
 router.get("/api/workouts/range", ({}, res) => {
 	Workout.find({})
 		.then((dbWorkout) => {
