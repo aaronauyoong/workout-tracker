@@ -9,8 +9,6 @@ Deployed to Heroku with MongoAtlas: [Workout Tracker](https://aaronauyoong-worko
 
 <br>
 
-<br>
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
 
 ## Table of Contents
