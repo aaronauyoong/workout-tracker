@@ -1,12 +1,34 @@
 const router = require("express").Router();
 const { Workout } = require("../models/workout.js");
 
+function arraySum(array) {
+	let result = 0;
+	for (let index = 0; index < array.length; index++) {
+		result += array[index];
+	}
+	return result;
+}
+
 // get all workouts
 router.get("/api/workouts", (req, res) => {
 	Workout.find({})
 		.sort({ name: 1 })
-		.then((dbWorkout) => {
-			res.json(dbWorkout);
+		.then((dbWorkouts) => {
+			const workouts = dbWorkouts.map((workout) => {
+				// calc the total duration for each workout
+				const durations = workout.exercises.map(
+					(exercise) => exercise.duration
+				);
+
+				const totalDuration = arraySum(durations);
+
+				return {
+					...workout.toObject(),
+					totalDuration,
+				};
+			});
+
+			res.json(workouts);
 		})
 		.catch((err) => {
 			res.status(400).json(err);
@@ -35,7 +57,7 @@ router.put("/api/workouts/:id", (req, res) => {
 		});
 });
 
-// get workouts/range for the stats page - links to frontend function getWorkoutsInRange() 
+// get workouts/range for the stats page - links to frontend function getWorkoutsInRange()
 router.get("/api/workouts/range", ({}, res) => {
 	Workout.find({})
 		.then((dbWorkout) => {
