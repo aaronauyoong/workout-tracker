@@ -4,7 +4,8 @@
 Project by: Aaron Au Yoong
 
 <br>
-Deployed to Heroku with MongoAtlas: <insert link here>
+
+Deployed to Heroku with MongoAtlas: [Workout Tracker](https://aaronauyoong-workout-tracker.herokuapp.com/).
 
 <br>
 
